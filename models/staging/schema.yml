@@ -6,3 +6,13 @@ sources:
       tables:
         - name: raw_customerdata
         - name: raw_orders
+          columns:
+           - name: id
+             tests:
+               - unique
+               - not_null                   
+           - name: status
+             tests:
+                - accepted_values:
+                      values:  ['PLACED', 'shipped', 'completed', 'returned','return_pending']
+        - name: customers
