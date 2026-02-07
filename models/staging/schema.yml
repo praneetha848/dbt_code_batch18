@@ -16,3 +16,4 @@ sources:
                 - accepted_values:
                       values:  ['PLACED', 'shipped', 'completed', 'returned','return_pending']
         - name: customers
+        - name: emp_sal
