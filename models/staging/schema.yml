@@ -1,0 +1,19 @@
+version: 2
+sources:
+    - name: datafeed_shared_schema
+      database: "{{('DEMO_SALES')}}"
+      schema: raw_schema
+      tables:
+        - name: raw_customerdata
+        - name: raw_orders
+          columns:
+           - name: id
+             tests:
+               - unique
+               - not_null                   
+           - name: status
+             tests:
+                - accepted_values:
+                      values:  ['PLACED', 'shipped', 'completed', 'returned','return_pending']
+        - name: customers
+        - name: emp_sal
